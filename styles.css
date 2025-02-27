@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://files.catbox.moe/5ql4nl.jpg') no-repeat center center/cover;
+    z-index: -1;
+}
+
+.cake-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.cake-piece {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: #f4a460;
+    border-radius: 0 0 100% 0;
+    opacity: 0;
+    animation: drop 1s forwards;
+}
+
+#piece1 { top: -150px; left: 0; animation-delay: 0.5s; }
+#piece2 { top: -150px; left: 150px; animation-delay: 1.5s; }
+#piece3 { top: 0; left: 0; animation-delay: 2.5s; }
+#piece4 { top: 0; left: 150px; animation-delay: 3.5s; }
+
+.chocolate-pink, .chocolate-vanilla {
+    position: absolute;
+    width: 300px;
+    height: 20px;
+    background-color: #ff69b4;
+    opacity: 0;
+    animation: drip 1s forwards;
+}
+
+.chocolate-pink { top: 150px; animation-delay: 4.5s; }
+.chocolate-vanilla { top: 170px; background-color: #f0e68c; animation-delay: 5.5s; }
+
+.candle {
+    position: absolute;
+    width: 10px;
+    height: 50px;
+    background-color: #fff;
+    top: -50px;
+    left: 145px;
+    opacity: 0;
+    animation: drop 1s forwards, candleStick 0.5s 6.5s forwards;
+}
+
+.flame {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: #ff4500;
+    border-radius: 50%;
+    top: -70px;
+    left: 145px;
+    opacity: 0;
+    animation: flameAppear 0.5s 7s forwards, flameFlicker 1s 7.5s infinite;
+}
+
+#blowButton {
+    position: absolute;
+    bottom: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0;
+    animation: appear 1s 8s forwards;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes drop {
+    0% { transform: translateY(-100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes drip {
+    0% { transform: translateY(-50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes candleStick {
+    0% { top: -50px; }
+    100% { top: 0; }
+}
+
+@keyframes flameAppear {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes flameFlicker {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes appear {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
